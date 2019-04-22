@@ -17,14 +17,32 @@ namespace ScrapeWebPageUsingHtmlAgilityPack
 
             HtmlDocument htmlDoc = web.Load(html);
 
-            //var node = htmlDoc.DocumentNode.SelectSingleNode("//*[@id=\"kp - wp - tab - MARKET_SUMMARY\"]/div[1]/div/div[1]/div[1]/div");
-            //HtmlNodeCollection rowsNodesList = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"wsod_whatsMoving\"]");
-            var node = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"wsod_whatsMoving\"]").First();
-            Console.WriteLine("node: " + node.InnerText);
-            
+            var node = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"wsod_marketMoversContainer\"]").FirstOrDefault();
 
             
-            
+
+            try
+            {
+                if (node != null)
+                {
+                    Console.WriteLine("node: " + node.InnerText);
+                }
+            }
+            catch (System.ArgumentNullException e)
+            {
+                throw new System.ArgumentNullException(
+                    "Node values cannot be null", e);
+            }
+            finally
+            {
+                Console.WriteLine("node: " + node.InnerText);
+            }
+
+
+
+
+
+
         }
     }
 }
