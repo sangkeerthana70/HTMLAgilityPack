@@ -25,6 +25,7 @@ namespace LoadHtmlFromAString
 
             var htmlBody = htmlDoc.DocumentNode.SelectSingleNode("//body");
 
+
             Console.WriteLine(htmlBody.OuterHtml);
         }
     }
