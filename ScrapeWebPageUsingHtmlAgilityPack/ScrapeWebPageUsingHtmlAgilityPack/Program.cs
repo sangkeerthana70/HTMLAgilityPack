@@ -18,27 +18,25 @@ namespace ScrapeWebPageUsingHtmlAgilityPack
             HtmlDocument htmlDoc = web.Load(html);
 
             var node = htmlDoc.DocumentNode.SelectNodes("//*[@id=\"wsod_marketMoversContainer\"]").FirstOrDefault();
+            Console.WriteLine("nodes: " + node.InnerText);
 
+           
             
+            var stockName = htmlDoc.DocumentNode
+                .SelectSingleNode("//*[@id=\"wsod_marketMoversContainer\"]/table/tbody/tr[4]");
+            Console.WriteLine("name: " + stockName);
 
-            try
+            Console.WriteLine("Node name: " + stockName.InnerText);   
+               
+            /*
+            var stockList  = new List<Stocks>();
+            foreach(var stock in stockList)
             {
-                if (node != null)
-                {
-                    Console.WriteLine("node: " + node.InnerText);
-                }
-            }
-            catch (System.ArgumentNullException e)
-            {
-                throw new System.ArgumentNullException(
-                    "Node values cannot be null", e);
-            }
-            finally
-            {
-                Console.WriteLine("node: " + node.InnerText);
-            }
-
-
+               
+                Console.WriteLine(stock.Price);
+                Console.WriteLine(stock.PercentChange);
+                Console.WriteLine(stock.Change);
+            }*/
 
 
 

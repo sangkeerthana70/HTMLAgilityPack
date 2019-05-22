@@ -14,7 +14,7 @@ namespace ScrapeWebPageUsingHtmlAgilityPack
         public string dataSource { get; set; }
         public DateTime createDate { get; set; }
 
-        public List<Stocks> getStocks = new List<Stocks>();
+        //public List<Stocks> getStocks = new List<Stocks>();
 
         public void parseOutput()
         {
